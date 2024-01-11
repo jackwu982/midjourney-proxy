@@ -2,6 +2,7 @@ package com.github.novicezk.midjourney;
 
 import com.github.novicezk.midjourney.enums.TranslateWay;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -63,6 +64,7 @@ public class ProxyProperties {
 	private int notifyPoolSize = 10;
 
 	@Data
+	@NoArgsConstructor
 	public static class DiscordAccountConfig {
 		/**
 		 * 服务器ID.
