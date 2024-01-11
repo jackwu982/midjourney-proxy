@@ -23,4 +23,6 @@ public class SubmitImagineDTO extends BaseSubmitDTO {
 	@Deprecated(since = "3.0", forRemoval = true)
 	private String base64;
 
+	@ApiModelProperty(value = "discord 账号ID")
+	private String discordInstanceId;
 }

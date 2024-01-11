@@ -13,6 +13,7 @@ import eu.maxschuster.dataurl.DataUrl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,13 @@ public class TaskServiceImpl implements TaskService {
 	private final DiscordLoadBalancer discordLoadBalancer;
 
 	@Override
-	public SubmitResultVO submitImagine(Task task, List<DataUrl> dataUrls) {
-		DiscordInstance instance = this.discordLoadBalancer.chooseInstance();
+	public SubmitResultVO submitImagine(Task task, List<DataUrl> dataUrls,String discordInstanceId) {
+		DiscordInstance instance;
+		if (StringUtils.hasText(discordInstanceId)){
+			instance = this.discordLoadBalancer.getDiscordInstance(discordInstanceId);
+		}else {
+			instance = this.discordLoadBalancer.chooseInstance();
+		}
 		if (instance == null) {
 			return SubmitResultVO.fail(ReturnCode.NOT_FOUND, "无可用的账号实例");
 		}
