@@ -2,9 +2,6 @@ package com.github.novicezk.midjourney;
 
 import com.github.novicezk.midjourney.enums.TranslateWay;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -12,10 +9,9 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Component
 @ConfigurationProperties(prefix = "mj")
-@Getter
-@Setter
 public class ProxyProperties {
 	/**
 	 * task存储配置.
@@ -66,8 +62,7 @@ public class ProxyProperties {
 	 */
 	private int notifyPoolSize = 10;
 
-	@Getter
-	@Setter
+	@Data
 	public static class DiscordAccountConfig {
 		/**
 		 * 服务器ID.
@@ -103,8 +98,7 @@ public class ProxyProperties {
 		private int timeoutMinutes = 5;
 	}
 
-	@Getter
-	@Setter
+	@Data
 	public static class BaiduTranslateConfig {
 		/**
 		 * 百度翻译的APP_ID.
@@ -116,8 +110,7 @@ public class ProxyProperties {
 		private String appSecret;
 	}
 
-	@Getter
-	@Setter
+	@Data
 	public static class OpenaiConfig {
 		/**
 		 * 自定义gpt的api-url.
@@ -145,8 +138,7 @@ public class ProxyProperties {
 		private double temperature = 0;
 	}
 
-	@Getter
-	@Setter
+	@Data
 	public static class TaskStore {
 		/**
 		 * 任务过期时间，默认30天.
@@ -169,8 +161,7 @@ public class ProxyProperties {
 		}
 	}
 
-	@Getter
-	@Setter
+	@Data
 	public static class ProxyConfig {
 		/**
 		 * 代理host.
@@ -182,8 +173,7 @@ public class ProxyProperties {
 		private Integer port;
 	}
 
-	@Getter
-	@Setter
+	@Data
 	public static class NgDiscordConfig {
 		/**
 		 * https://discord.com 反代.
@@ -203,8 +193,7 @@ public class ProxyProperties {
 		private String uploadServer;
 	}
 
-	@Getter
-	@Setter
+	@Data
 	public static class TaskQueueConfig {
 		/**
 		 * 并发数.
