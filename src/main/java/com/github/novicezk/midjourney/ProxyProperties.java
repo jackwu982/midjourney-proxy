@@ -12,6 +12,7 @@ import java.util.List;
 
 @Data
 @Component
+@NoArgsConstructor
 @ConfigurationProperties(prefix = "mj")
 public class ProxyProperties {
 	/**
